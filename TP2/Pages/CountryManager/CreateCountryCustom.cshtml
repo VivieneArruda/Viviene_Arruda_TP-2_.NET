@@ -1,0 +1,34 @@
+@page
+@model CreateCountryCustomModel
+@* Exercício: 12 *@
+@{
+    ViewData["Title"] = "Exercício 12";
+}
+
+<h1>Cadastro de país</h1>
+<p class="text-muted">O nome e o código precisam começar com a mesma letra (ex: Brasil / BR).</p>
+
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Input.CountryName" class="form-label"></label>
+        <input asp-for="Input.CountryName" class="form-control" />
+        <span asp-validation-for="Input.CountryName" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Input.CountryCode" class="form-label"></label>
+        <input asp-for="Input.CountryCode" class="form-control" />
+        <span asp-validation-for="Input.CountryCode" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+
+@if (Model.NewCountry != null)
+{
+    <div class="alert alert-success mt-3">
+        País criado: <strong>@Model.NewCountry.CountryName</strong> (@Model.NewCountry.CountryCode)
+    </div>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

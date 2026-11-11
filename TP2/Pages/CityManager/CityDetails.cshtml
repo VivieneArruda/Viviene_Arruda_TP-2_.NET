@@ -1,0 +1,12 @@
+@page "{cityName}"
+@model CityDetailsModel
+@* Exercício: 8 *@
+@{
+    ViewData["Title"] = "Exercício 8";
+}
+
+<h1>Detalhes da cidade</h1>
+
+<p class="fs-5">Você está vendo detalhes de: <strong>@Model.CityName</strong></p>
+
+<a asp-page="/CityManager/Cities" class="btn btn-outline-secondary">Voltar para a lista</a>

@@ -1,0 +1,27 @@
+@page
+@model CreateCountryModel
+@* Exercício: 5 *@
+@{
+    ViewData["Title"] = "Exercício 5";
+}
+
+<h1>Cadastro de país</h1>
+
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Input.CountryName" class="form-label"></label>
+        <input asp-for="Input.CountryName" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Input.CountryCode" class="form-label"></label>
+        <input asp-for="Input.CountryCode" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+
+@if (Model.NewCountry != null)
+{
+    <div class="alert alert-success mt-3">
+        País criado: <strong>@Model.NewCountry.CountryName</strong> (@Model.NewCountry.CountryCode)
+    </div>
+}

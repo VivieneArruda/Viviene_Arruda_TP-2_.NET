@@ -1,0 +1,24 @@
+@page
+@model CreateCityValidationModel
+@* Exercício: 3 *@
+@{
+    ViewData["Title"] = "Exercício 3";
+}
+
+<h1>Cadastro de cidade</h1>
+<p class="text-muted">Validação feita no servidor com Data Annotations.</p>
+
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Input.CityName" class="form-label"></label>
+        <input asp-for="Input.CityName" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+
+@if (Model.Message != null)
+{
+    <div class="alert alert-success mt-3">@Model.Message</div>
+}

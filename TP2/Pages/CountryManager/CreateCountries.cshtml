@@ -1,0 +1,43 @@
+@page
+@model CreateCountriesModel
+@* Exercício: 7 *@
+@{
+    ViewData["Title"] = "Exercício 7";
+}
+
+<h1>Cadastro de vários países</h1>
+<p class="text-muted">Preencha quantas linhas quiser e envie tudo de uma vez.</p>
+
+<form method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nome do país</th>
+                <th>Código</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < Model.Countries.Count; i++)
+            {
+                <tr>
+                    <td>@(i + 1)</td>
+                    <td><input asp-for="Countries[i].CountryName" class="form-control" /></td>
+                    <td><input asp-for="Countries[i].CountryCode" class="form-control" /></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-primary">Salvar todos</button>
+</form>
+
+@if (Model.Saved.Count > 0)
+{
+    <h4 class="mt-4">Países enviados</h4>
+    <ul class="list-group">
+        @foreach (var country in Model.Saved)
+        {
+            <li class="list-group-item">@country.CountryName - @country.CountryCode</li>
+        }
+    </ul>
+}

@@ -1,0 +1,22 @@
+@page
+@model CreateCityHandlerModel
+@* Exercício: 2 *@
+@{
+    ViewData["Title"] = "Exercício 2";
+}
+
+<h1>Cadastro de cidade</h1>
+<p class="text-muted">Agora o valor chega como parâmetro do OnPost.</p>
+
+<form method="post">
+    <div class="mb-3">
+        <label for="cityName" class="form-label">Nome da cidade</label>
+        <input id="cityName" name="cityName" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+
+@if (Model.Message != null)
+{
+    <div class="alert alert-success mt-3">@Model.Message</div>
+}

@@ -1,0 +1,31 @@
+@page
+@model ReadNotesModel
+@* Exercício: 11 *@
+@{
+    ViewData["Title"] = "Exercício 11";
+}
+
+<h1>Notas salvas</h1>
+
+@if (Model.Files.Count == 0)
+{
+    <p>Nenhuma nota encontrada. <a asp-page="/Notes/SaveNote">Criar uma nota</a></p>
+}
+else
+{
+    <ul class="list-group mb-4">
+        @foreach (var f in Model.Files)
+        {
+            <li class="list-group-item d-flex justify-content-between">
+                <span>@f</span>
+                <a asp-page="/Notes/ReadNotes" asp-route-file="@f">Visualizar</a>
+            </li>
+        }
+    </ul>
+}
+
+@if (Model.SelectedFile != null)
+{
+    <h4>@Model.SelectedFile</h4>
+    <pre class="border rounded p-3 bg-light">@Model.FileContent</pre>
+}

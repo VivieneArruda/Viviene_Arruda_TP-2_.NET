@@ -1,0 +1,24 @@
+@page
+@model CreateCityModel
+@* Exercício: 1 *@
+@{
+    ViewData["Title"] = "Exercício 1";
+}
+
+<h1>Cadastro de cidade</h1>
+<p class="text-muted">Usando [BindProperty] no PageModel.</p>
+
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="CityName" class="form-label">Nome da cidade</label>
+        <input asp-for="CityName" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+
+@if (!string.IsNullOrWhiteSpace(Model.CityName))
+{
+    <div class="alert alert-success mt-3">
+        Cidade enviada: <strong>@Model.CityName</strong>
+    </div>
+}

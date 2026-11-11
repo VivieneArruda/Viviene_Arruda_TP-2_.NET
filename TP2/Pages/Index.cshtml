@@ -1,0 +1,22 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Início";
+}
+
+<h1 class="mb-4">TP2 - Razor Pages</h1>
+
+<div class="list-group">
+    <a class="list-group-item list-group-item-action" asp-page="/CityManager/CreateCity">1. Razor Page com [BindProperty]</a>
+    <a class="list-group-item list-group-item-action" asp-page="/CityManager/CreateCityHandler">2. Parâmetro no handler OnPost</a>
+    <a class="list-group-item list-group-item-action" asp-page="/CityManager/CreateCityValidation">3. Validação no servidor</a>
+    <a class="list-group-item list-group-item-action" asp-page="/CityManager/CreateCityClient">4. Validação no cliente</a>
+    <a class="list-group-item list-group-item-action" asp-page="/CountryManager/CreateCountry">5. Objeto complexo (Country)</a>
+    <a class="list-group-item list-group-item-action" asp-page="/CountryManager/CreateCountryIso">6. Código ISO com 2 letras</a>
+    <a class="list-group-item list-group-item-action" asp-page="/CountryManager/CreateCountries">7. Vários países de uma vez</a>
+    <a class="list-group-item list-group-item-action" asp-page="/CityManager/CityDetails" asp-route-cityName="Rio de Janeiro">8. Rota com parâmetro na URL</a>
+    <a class="list-group-item list-group-item-action" asp-page="/CityManager/Cities">9. Links com tag helpers</a>
+    <a class="list-group-item list-group-item-action" asp-page="/Notes/SaveNote">10. Salvar nota em arquivo</a>
+    <a class="list-group-item list-group-item-action" asp-page="/Notes/ReadNotes">11. Ler notas salvas</a>
+    <a class="list-group-item list-group-item-action" asp-page="/CountryManager/CreateCountryCustom">12. Validação customizada com ModelState</a>
+</div>
